@@ -4,6 +4,7 @@
 namespace Lands.ViewModels
 {
     using System.ComponentModel;
+    using GalaSoft.MvvmLight.Command;
     using System.Windows.Input;
     using Xamarin.Forms;
 
@@ -48,7 +49,10 @@ namespace Lands.ViewModels
         #region Commands
         public ICommand LoginCommand
         {
-            get;
+            get
+            {
+                return RelayCommand(Login);
+            }
         }
 
         private async void Login()
@@ -86,7 +90,6 @@ namespace Lands.ViewModels
             this.IsRemembered = true;
             this.IsEnabled = true;
         }
-
 
         #endregion
     }
