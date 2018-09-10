@@ -7,11 +7,8 @@ namespace Lands.ViewModels
     using System.Windows.Input;
     using Xamarin.Forms;
 
-    public class LoginViewModel : INotifyPropertyChanged
+    public class LoginViewModel : BaseViewModel
     {
-        #region Events
-        public event PropertyChangedEventHandler PropertyChanged;
-        #endregion
 
         #region Attributes
         public string password;
@@ -28,13 +25,13 @@ namespace Lands.ViewModels
         }
         public string Password
         {
-            get;
-            set;
+            get { return this.password; }
+            set { SetValue(ref this.password, value); }
         }
         public bool IsRunning
         {
-            get;
-            set;
+            get { return this.isRunning; }
+            set { SetValue(ref this.isRunning, value); }
         }
         public bool IsRemembered
         {
@@ -43,19 +40,15 @@ namespace Lands.ViewModels
         }
         public bool IsEnabled
         {
-            get;
-            set;
+            get { return this.isEnabled; }
+            set { SetValue(ref this.isEnabled, value); }
         }
         #endregion
 
         #region Commands
         public ICommand LoginCommand
         {
-            get
-            {
-                return RelayCommand(Login);
-            }
-   
+            get;
         }
 
         private async void Login()
