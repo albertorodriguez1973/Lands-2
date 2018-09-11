@@ -102,6 +102,7 @@ namespace Lands.ViewModels
             this.IsEnabled = true;
             this.Email = "a.rodriguez@gmail.com";
             this.Password = "1234";
+            // http://restcountries.eu/rest/v2/all
         }
 
         #endregion
